@@ -1,0 +1,10 @@
+//Import Bootstrap node modules
+@import "~bootstrap/scss/bootstrap.scss";
+
+// Vars
+@import "./vars.scss";
+
+body {
+  font-family: $main-font;
+  background: #1c2834;
+}
