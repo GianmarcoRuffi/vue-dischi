@@ -21,6 +21,7 @@ export default {
 header {
   background-color: #2e3a46;
   height: 70px;
+  margin-bottom: 20px;
   .logo {
     width: 50px;
     height: 50px;

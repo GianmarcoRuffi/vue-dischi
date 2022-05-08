@@ -1,18 +1,16 @@
 <template>
   <section class="container">
     <div class="album-container row py-3 d-flex justify-content-center">
-      <div class="col-3">
-        <div
-          v-for="(item, index) in albumList"
-          :key="index"
-          class="card justify-content-center align-items-center"
-        >
-          <img class="img-fluid" :src="item.poster" :alt="item.title" />
-          <div class="title-card">{{ item.title }}</div>
-          <div class="text-card">{{ item.author }}</div>
-          <div class="text-card">{{ item.genre }}</div>
-          <div class="text-card">{{ item.year }}</div>
-        </div>
+      <div
+        v-for="(item, index) in albumList"
+        :key="index"
+        class="col-3 card justify-content-center align-items-center"
+      >
+        <img class="img-fluid" :src="item.poster" :alt="item.title" />
+        <div class="title-card">{{ item.title }}</div>
+        <div class="text-card">{{ item.author }}</div>
+        <div class="text-card">{{ item.genre }}</div>
+        <div class="text-card">{{ item.year }}</div>
       </div>
     </div>
   </section>
@@ -47,20 +45,27 @@ export default {
 .album-container {
   background: $bg-color;
   width: 100%;
+  padding-top: 30px;
   .card {
     background: $bg-card-color;
     text-transform: uppercase;
-    height: 500px;
+    height: 450px;
+    margin-right: 30px;
+    margin-top: 30px;
+    width: 20%;
+
     img {
       width: 100%;
       height: auto;
     }
     .title-card {
       color: $title-color;
+      padding-top: 8px;
       font-weight: bold;
     }
     .text-card {
       color: $text-color;
+      padding-top: 5px;
     }
   }
 }
