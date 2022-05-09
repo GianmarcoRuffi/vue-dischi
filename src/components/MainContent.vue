@@ -1,5 +1,6 @@
 <template>
   <section class="container">
+    <div><FilterComp /></div>
     <div class="album-container row py-3 d-flex justify-content-center">
       <div
         v-for="(item, index) in albumList"
@@ -18,14 +19,17 @@
 
 <script>
 import axios from "axios";
+import FilterComp from "./FilterComp.vue";
 export default {
   name: "MainContent",
+  components: { FilterComp },
   data() {
     return {
       albumList: [],
       apiPath: "https://flynn.boolean.careers/exercises/api/array/",
     };
   },
+
   mounted() {
     axios
       .get(this.apiPath + "music")
