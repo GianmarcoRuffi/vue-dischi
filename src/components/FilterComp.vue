@@ -53,7 +53,7 @@ export default {
 
 .selector {
   margin-top: 10px;
-
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  width: 40px;
 }
 </style>
