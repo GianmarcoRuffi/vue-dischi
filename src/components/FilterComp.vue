@@ -28,10 +28,13 @@ export default {
     genres() {
       const genreList = [];
       this.discs.forEach((disc) => {
-        console.log(disc.genre);
-        console.log(genreList);
+        if (!genreList.includes(disc.genre)) {
+          genreList.push(disc.genre);
+          console.log(disc.genre);
+        }
       });
 
+      console.log(genreList);
       return genreList;
     },
   },
