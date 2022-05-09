@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <div><FilterComp /></div>
+    <div><FilterComp :discs="albumList" /></div>
     <div class="album-container row py-3 d-flex justify-content-center">
       <div
         v-for="(item, index) in albumList"
@@ -34,7 +34,7 @@ export default {
     axios
       .get(this.apiPath + "music")
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         this.albumList = res.data.response;
       })
       .catch((error) => {
