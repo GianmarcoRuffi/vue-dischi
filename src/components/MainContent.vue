@@ -30,6 +30,23 @@ export default {
     };
   },
 
+  computed: {
+    filterDiscs(key) {
+      console.log(`Filtering Discs by ${key}`);
+      const filteredDiscs = [];
+      if (key === "All") {
+        this.albumList = this.discs;
+      } else {
+        this.discs.forEach((element) => {
+          if (el.genre === key) {
+            filteredDiscs.push(el);
+          }
+        });
+        this.albumList = filteredDiscs;
+      }
+    },
+  },
+
   mounted() {
     axios
       .get(this.apiPath + "music")
