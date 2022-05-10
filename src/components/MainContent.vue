@@ -32,14 +32,14 @@ export default {
   },
 
   methods: {
-    filterDiscs(key) {
-      console.log(`Filtering Discs by ${key}`);
+    filterDiscs(searchKeys) {
+      console.log(`Filtering Discs by ${searchKeys.genre}`);
       const filteredDiscs = [];
-      if (key === "All") {
+      if (searchKeys.genre === "All" && searchKeys.searchText === "") {
         this.filteredDiscs = this.albumList;
-      } else {
+      } else if (searchKeys.genre != "All" && searchKeys.searchText === "") {
         this.albumList.forEach((el) => {
-          if (el.genre === key) {
+          if (el.genre === searchKeys.genre) {
             filteredDiscs.push(el);
           }
         });

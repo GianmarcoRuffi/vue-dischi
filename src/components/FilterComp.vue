@@ -6,6 +6,8 @@
         {{ genre }}
       </option>
     </select>
+
+    <input type="text" v-model="inputText" @change="startFilter" />
   </div>
 </template>
 
@@ -18,6 +20,7 @@ export default {
   data() {
     return {
       key: "All",
+      inputText: "",
     };
   },
 
@@ -38,7 +41,11 @@ export default {
 
   methods: {
     startFilter() {
-      this.$emit("startFilter", this.key);
+      let searchKeys = {
+        genre: this.key,
+        searchText: this.inputText,
+      };
+      this.$emit("startFilter", searchKeys);
     },
   },
 };
