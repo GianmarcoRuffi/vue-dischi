@@ -1,9 +1,9 @@
 <template>
   <section class="container">
-    <div><FilterComp :discs="albumList" /></div>
+    <div><FilterComp :discs="albumList" @startFilter="filterDiscs" /></div>
     <div class="album-container row py-3 d-flex justify-content-center">
       <div
-        v-for="(item, index) in albumList"
+        v-for="(item, index) in filteredDiscs"
         :key="index"
         class="col-3 card justify-content-center align-items-center"
       >
@@ -27,22 +27,23 @@ export default {
     return {
       albumList: [],
       apiPath: "https://flynn.boolean.careers/exercises/api/array/",
+      filteredDiscs: [],
     };
   },
 
-  computed: {
+  methods: {
     filterDiscs(key) {
       console.log(`Filtering Discs by ${key}`);
       const filteredDiscs = [];
       if (key === "All") {
-        this.albumList = this.discs;
+        this.filteredDiscs = this.albumList;
       } else {
-        this.discs.forEach((element) => {
+        this.albumList.forEach((el) => {
           if (el.genre === key) {
             filteredDiscs.push(el);
           }
         });
-        this.albumList = filteredDiscs;
+        this.filteredDiscs = filteredDiscs;
       }
     },
   },
@@ -53,6 +54,7 @@ export default {
       .then((res) => {
         // console.log(res);
         this.albumList = res.data.response;
+        this.filteredDiscs = this.albumList;
       })
       .catch((error) => {
         console.log(error);

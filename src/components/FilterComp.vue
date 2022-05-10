@@ -11,9 +11,6 @@
 
 <script>
 export default {
-  // mounted() {
-  //   console.log(this.discs[0].genre);
-  // },
   name: "FilterComp",
   props: {
     discs: Array,
